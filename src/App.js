@@ -1,24 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Dashboard from "./Components/Dashboard"
 
 function App() {
+  const [balls, setBalls] = useState(0);
+  const [strikes, setStrikes] = useState(0);
+  
+  const hit = () =>{
+    setBalls(0);
+    setStrikes(0);
+  }
+
+  const ball = () =>{
+    if(balls === 4){
+      setBalls(0);
+      setStrikes(0);
+    }else{
+      setBalls(balls+1);
+    }
+  }
+
+  const foul = () =>{
+    if(strikes < 2){
+      setStrikes(strikes+1);
+    }
+  }
+
+  const stike = () =>{
+    if(strikes === 3){
+      setBalls(0);
+      setStrikes(0);
+    }else{
+      setStrikes(strikes+1);
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
