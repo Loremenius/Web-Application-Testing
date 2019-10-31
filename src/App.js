@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Dashboard from "./Components/Dashboard"
+import Display from "./Components/Display"
 
 function App() {
   const [balls, setBalls] = useState(0);
@@ -26,7 +27,7 @@ function App() {
     }
   }
 
-  const stike = () =>{
+  const strike = () =>{
     if(strikes === 3){
       setBalls(0);
       setStrikes(0);
@@ -38,7 +39,8 @@ function App() {
 
   return (
     <div className="App">
-      
+      <Display balls={balls} strikes={strikes}/>
+      <Dashboard hit={hit} ball={ball} foul={foul} strike={strike}/>
     </div>
   );
 }
